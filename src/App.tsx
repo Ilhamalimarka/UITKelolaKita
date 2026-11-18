@@ -68,7 +68,7 @@ const initialStore: Store = {
     {
       id: "u-siti",
       name: "Siti Rahayu",
-      email: "siti.rahayu@contoh.id",
+      email: "siti.rahayu@gmail.com",
       password: "siti2026",
       role: "user",
       profile: {
@@ -83,7 +83,7 @@ const initialStore: Store = {
     {
       id: "u-agus",
       name: "Agus Setiawan",
-      email: "agus.setiawan@contoh.id",
+      email: "agus.setiawan@gmail.com",
       password: "agus-jaya7",
       role: "user",
       profile: {
@@ -98,7 +98,7 @@ const initialStore: Store = {
     {
       id: "u-ahmad",
       name: "Ahmad Fauzi",
-      email: "ahmad.fauzi@contoh.id",
+      email: "ahmad.fauzi@gmail.com",
       password: "panen2026",
       role: "user",
       profile: {
@@ -113,7 +113,7 @@ const initialStore: Store = {
     {
       id: "u-dewi",
       name: "Dewi Lestari",
-      email: "dewi.lestari@contoh.id",
+      email: "dewi.lestari@gmail.com",
       password: "dewi-sehat",
       role: "user",
       profile: {
@@ -128,7 +128,7 @@ const initialStore: Store = {
     {
       id: "admin",
       name: "Administrator",
-      email: "admin@contoh.id",
+      email: "admin@gmail.com",
       password: "admin12345",
       role: "admin",
       profile: { ...emptyProfile },
@@ -457,7 +457,13 @@ function loadStore(): Store {
       !Array.isArray(parsed.categories)
     )
       return initialStore;
-    return parsed as Store;
+    return {
+      ...parsed,
+      users: parsed.users.map((user) => ({
+        ...user,
+        email: user.email.replace(/@contoh\.id$/i, "@gmail.com"),
+      })),
+    } as Store;
   } catch {
     return initialStore;
   }
