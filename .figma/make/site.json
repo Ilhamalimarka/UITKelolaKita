@@ -1,0 +1,12 @@
+{
+  "title": "Aplikasi Pengelola Keuangan Keluarga",
+  "description": "Aplikasi keuangan keluarga untuk mencatat pemasukan dan pengeluaran, memantau saldo, melihat rekapan, dan mendapat rekomendasi alokasi dana berdasarkan profil.",
+  "language": "id",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
